@@ -95,7 +95,11 @@ function App() {
                </li>
                <li className="flex items-start gap-3">
                   <span className="text-accent">Office:</span> 
-                  Ramdev Tower, Plot 45,<br/>Civil Lines, Pink City.
+                  <span>
+                    House No 8, Kenpura Road, Choti Rani,<br/>
+                    Landmark: TVS Showroom,<br/>
+                    Rani, Pali, Rajasthan
+                  </span>
                </li>
              </ul>
           </div>
