@@ -56,7 +56,7 @@ function App() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <h4 className="text-accent font-serif text-2xl font-bold mb-6">Malviya & Co.</h4>
+            <h4 className="text-accent font-serif text-2xl font-bold mb-6">Ramdev Builders</h4>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Your partner in premium construction and interior excellence. From foundation to finishing touches, we build legacies.
             </p>
@@ -83,17 +83,19 @@ function App() {
           <div>
              <h5 className="text-white font-bold uppercase tracking-wider mb-6 text-sm">Get in Touch</h5>
              <ul className="space-y-4 text-gray-400 text-sm">
-               <li className="flex items-start gap-3">
+               <li className="flex flex-col gap-1">
                   <span className="text-accent">Phone:</span> 
-                  +91 63760 07979
+                  <span>+91 98690 61317</span>
+                  <span>+91 70734 93193</span>
+                  <span>+91 63760 07979</span>
                </li>
                <li className="flex items-start gap-3">
                   <span className="text-accent">Email:</span> 
-                  hello@malviya.co
+                  vinitmalviya8369@gmail.com
                </li>
                <li className="flex items-start gap-3">
                   <span className="text-accent">Office:</span> 
-                  Plot 45,<br/>Rani gaon, Rani, Pali, Rajasthan 
+                  Ramdev Tower, Plot 45,<br/>Civil Lines, Pink City.
                </li>
              </ul>
           </div>
@@ -118,7 +120,7 @@ function App() {
         </div>
         
         <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
-           <p>&copy; {new Date().getFullYear()} Malviya & Co. All rights reserved.</p>
+           <p>&copy; {new Date().getFullYear()} Ramdev Builders & Developers. All rights reserved.</p>
            <div className="flex gap-6">
              <span className="cursor-pointer hover:text-gray-400">Privacy Policy</span>
              <span className="cursor-pointer hover:text-gray-400">Terms of Service</span>

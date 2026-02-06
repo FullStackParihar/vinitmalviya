@@ -8,7 +8,7 @@ const reviews = [
     name: "Rajesh & Priya Malhotra",
     location: "Mumbai",
     rating: 5,
-    text: "Malviya & Co. transformed our old apartment into a modern masterpiece. The 2D planning phase was crucial—they optimized every inch of space. Highly recommended!",
+    text: "Ramdev Builders transformed our old apartment into a modern masterpiece. The 2D planning phase was crucial—they optimized every inch of space. Highly recommended!",
   },
   {
     id: 2,

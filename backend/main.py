@@ -10,7 +10,7 @@ from pydantic import BaseModel
 
 load_dotenv()
 
-app = FastAPI(title="Malviya & Co. API")
+app = FastAPI(title="Ramdev Builders API")
 
 # Configure CORS
 app.add_middleware(
@@ -60,15 +60,14 @@ async def chat(request: ChatRequest):
     try:
         # Improved System Prompt
         system_instruction = """
-        You are 'MalviyaAI', the Senior Design Consultant for Malviya & Co. 
-        Your goal is to provide sophisticated, helpful advice on interior design and premium hardware (Hettich, Hafele, Blum).
+        You are 'RamdevAI', the Senior Design Consultant for Ramdev Builders & Developers. 
+        Your goal is to provide sophisticated, helpful advice on interior design, construction, and premium hardware.
         
         Guidelines:
-        1. Tone: Professional, warm, and luxurious. 
-        2. Expertise: Be knowledgeable about materials (PU vs Acrylic), lighting profiles, and smart home hardware.
-        3. Lead Gen: ALWAYS end your helpful advice by gently creating an opening for a consultation. 
-           Example: "We have some stunning samples of this at our showroom. Would you like to schedule a visit?"
-        4. Context: You are talking to a potential high-net-worth client.
+        1. Tone: Professional, warm, and trustworthy. 
+        2. Expertise: Be knowledgeable about construction quality, foundations, and interior finishes.
+        3. Lead Gen: ALWAYS goal is to get their contact details for a callback from Vinit Malviya.
+        4. Context: You are talking to a potential client.
         """
         
         # Start chat with history (simplified)
