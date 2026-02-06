@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import kitchenImage from '../assets/kitchen.png';
 import heroImage from '../assets/hero.png';
+import constructionImage from '../assets/construction_site.png';
+import constructionFoundationImage from '../assets/construction_foundation.png';
+import floorPlanImage from '../assets/floor_plan.png';
+import floorPlanApartmentImage from '../assets/floor_plan_apartment.png';
 
-// Mock data using the images we have
 const projects = [
   {
     id: 1,
@@ -22,11 +25,35 @@ const projects = [
     size: "small"
   },
   {
-    id: 3,
-    title: "Urban Loft",
-    category: "Living Room",
-    scope: "Interior Styling",
-    image: heroImage, // Reusing for demo
+    id: 6,
+    title: "Skyline Tower Site",
+    category: "Construction",
+    scope: "Structural Work",
+    image: constructionImage,
+    size: "small"
+  },
+  {
+    id: 7,
+    title: "Luxury Villa Blueprint",
+    category: "Floor Plans",
+    scope: "Architectural Planning",
+    image: floorPlanImage,
+    size: "large"
+  },
+  {
+    id: 8,
+    title: "City Center Foundation",
+    category: "Construction",
+    scope: "Civil Engineering",
+    image: constructionFoundationImage, 
+    size: "large"
+  },
+  {
+    id: 9,
+    title: "3BHK Apartment Layout",
+    category: "Floor Plans",
+    scope: "Residential Zoning",
+    image: floorPlanApartmentImage,
     size: "small"
   },
   {
@@ -34,20 +61,20 @@ const projects = [
     title: "Executive Suite",
     category: "Office",
     scope: "Commercial Fitout",
-    image: kitchenImage, // Reusing for demo
-    size: "large"
+    image: kitchenImage, // reusing
+    size: "small"
   },
-  {
+   {
     id: 5,
     title: "Premium Hardware",
     category: "Hardware Fittings",
     scope: "Supply & Install",
-    image: heroImage, // Reusing
+    image: heroImage, // reusing
     size: "small"
   }
 ];
 
-const categories = ["All", "Living Room", "Kitchen", "Office", "Hardware Fittings"];
+const categories = ["All", "Living Room", "Kitchen", "Construction", "Floor Plans", "Office"];
 
 const MasonryPortfolio = () => {
   const [filter, setFilter] = useState("All");
@@ -66,7 +93,7 @@ const MasonryPortfolio = () => {
           className="text-center mb-16"
         >
           <h2 className="text-accent tracking-widest uppercase mb-4 font-medium">Our Masterpieces</h2>
-          <h3 className="text-4xl md:text-5xl font-serif text-primary">Selected Works</h3>
+          <h3 className="text-4xl md:text-5xl font-serif text-primary">Portfolio & Projects</h3>
         </motion.div>
 
         {/* Filters */}
@@ -104,7 +131,7 @@ const MasonryPortfolio = () => {
                   project.size === 'large' ? 'md:col-span-2 md:row-span-2' : ''
                 }`}
               >
-                <div className="aspect-[4/3] w-full h-full overflow-hidden">
+                <div className={`w-full h-full overflow-hidden ${project.size === 'large' ? 'aspect-square md:aspect-auto' : 'aspect-[4/3]'}`}>
                   <img 
                     src={project.image} 
                     alt={project.title} 
@@ -118,11 +145,11 @@ const MasonryPortfolio = () => {
                     {project.title}
                   </h4>
                   <p className="text-accent uppercase tracking-wider text-sm mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">
+                    {project.category}
+                  </p>
+                  <p className="text-gray-300 text-xs mb-4 max-w-[80%] translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">
                     {project.scope}
                   </p>
-                  <button className="px-6 py-2 border border-white text-white hover:bg-white hover:text-primary transition-colors duration-300 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200">
-                    Inquire about this style
-                  </button>
                 </div>
               </motion.div>
             ))}

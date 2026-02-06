@@ -5,7 +5,7 @@ import { MessageSquare, X, Send, Loader2 } from 'lucide-react';
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: 'system', content: 'Hello! I am EliteAI. Ask me about modern kitchen trends or premium hardware choices.' }
+    { role: 'system', content: 'Hello! I am MalviyaAI. Ask me about modern kitchen trends or premium hardware choices.' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -76,7 +76,7 @@ const Chatbot = () => {
           >
             <div className="bg-primary p-4 text-white flex items-center justify-between">
               <div>
-                <h3 className="font-serif font-bold text-lg text-accent">EliteAI Consultant</h3>
+                <h3 className="font-serif font-bold text-lg text-accent">MalviyaAI Consultant</h3>
                 <p className="text-xs text-gray-400">Online & Ready to Design</p>
               </div>
             </div>

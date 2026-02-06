@@ -96,7 +96,7 @@ const BookingModal = ({ isOpen, onClose, initialInterest = "General Consultation
                       value={formData.phone}
                       onChange={e => setFormData({...formData, phone: e.target.value})}
                       className="w-full border border-gray-200 p-3 rounded-lg focus:outline-none focus:border-accent"
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 63760 07979"
                     />
                   </div>
                   <div>

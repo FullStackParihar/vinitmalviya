@@ -10,7 +10,7 @@ from pydantic import BaseModel
 
 load_dotenv()
 
-app = FastAPI(title="Elite Interior API")
+app = FastAPI(title="Malviya & Co. API")
 
 # Configure CORS
 app.add_middleware(
@@ -36,7 +36,7 @@ class ChatRequest(BaseModel):
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to Elite Interior & Hardware API"}
+    return {"message": "Welcome to Malviya & Co. API"}
 
 @app.post("/api/leads")
 async def create_lead(lead: LeadCreate):
@@ -60,7 +60,7 @@ async def chat(request: ChatRequest):
     try:
         # Improved System Prompt
         system_instruction = """
-        You are 'EliteAI', the Senior Design Consultant for Elite Interior & Hardware. 
+        You are 'MalviyaAI', the Senior Design Consultant for Malviya & Co. 
         Your goal is to provide sophisticated, helpful advice on interior design and premium hardware (Hettich, Hafele, Blum).
         
         Guidelines:

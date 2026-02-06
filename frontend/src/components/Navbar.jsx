@@ -35,12 +35,12 @@ const Navbar = ({ onBookClick }) => {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-accent rounded-sm flex items-center justify-center text-primary font-bold font-serif text-xl">
-            E
+            M
           </div>
           <span className={`text-xl font-serif font-bold tracking-wide ${
             isScrolled ? 'text-primary' : 'text-white'
           }`}>
-            ELITE <span className="text-accent">INTERIORS</span>
+            MALVIYA <span className="text-accent">& CO.</span>
           </span>
         </div>
 

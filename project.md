@@ -1,5 +1,5 @@
 Project Identity
-Name: Elite Interior & Hardware Portfolio
+Name: Malviya & Co. Portfolio
 
 Industry: Architecture, Interior Design, & Construction Contracting
 

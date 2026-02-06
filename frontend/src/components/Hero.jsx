@@ -59,7 +59,7 @@ const Hero = ({ onBookClick }) => {
           className="space-y-6"
         >
           <h2 className="text-accent text-lg md:text-xl tracking-[0.2em] uppercase font-medium">
-            Elite Interior & Hardware
+            Malviya & Co.
           </h2>
           <h1 className="text-4xl md:text-7xl font-serif text-white leading-tight">
             {slides[currentSlide].title}

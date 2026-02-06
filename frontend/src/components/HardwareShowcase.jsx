@@ -36,7 +36,7 @@ const HardwareShowcase = () => {
     
   const handleWhatsapp = (productName) => {
     const message = encodeURIComponent(`Hi, I'm interested in the ${productName}. Can you share more details?`);
-    window.open(`https://wa.me/918118867247?text=${message}`, '_blank');
+    window.open(`https://wa.me/916376007979?text=${message}`, '_blank');
   };
 
   return (
