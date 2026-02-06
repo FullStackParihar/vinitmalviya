@@ -11,7 +11,7 @@ const BookingModal = ({ isOpen, onClose, initialInterest = "General Consultation
     setStatus('submitting');
     
     try {
-      const response = await fetch('http://localhost:8000/api/leads', {
+      const response = await fetch('https://vinitmalviya.onrender.com/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...formData, interest: initialInterest }),
