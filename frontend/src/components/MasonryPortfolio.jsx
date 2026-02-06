@@ -6,6 +6,7 @@ import constructionImage from '../assets/construction_site.png';
 import constructionFoundationImage from '../assets/construction_foundation.png';
 import floorPlanImage from '../assets/floor_plan.png';
 import floorPlanApartmentImage from '../assets/floor_plan_apartment.png';
+import exteriorImage from '../assets/exterior_elevation.png';
 
 const projects = [
   {
@@ -14,6 +15,14 @@ const projects = [
     category: "Living Room",
     scope: "Full Renovation",
     image: heroImage,
+    size: "large"
+  },
+  {
+    id: 10,
+    title: "The Glass House",
+    category: "Exterior",
+    scope: "Elevation Design",
+    image: exteriorImage,
     size: "large"
   },
   {
@@ -74,7 +83,7 @@ const projects = [
   }
 ];
 
-const categories = ["All", "Living Room", "Kitchen", "Construction", "Floor Plans", "Office"];
+const categories = ["All", "Construction", "Exterior", "Floor Plans", "Living Room", "Kitchen", "Office"];
 
 const MasonryPortfolio = () => {
   const [filter, setFilter] = useState("All");
