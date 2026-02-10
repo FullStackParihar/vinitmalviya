@@ -49,8 +49,24 @@ const Navbar = ({ onBookClick }) => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
-        {/* Logo */}
-        <div className="flex items-center gap-2">
+        {/* Logo with Secret Admin Access */}
+        <div 
+          className="flex items-center gap-2 cursor-pointer"
+          onClick={() => {
+            const now = Date.now();
+            if (now - (window.lastLogoClick || 0) < 500) {
+              window.logoClickCount = (window.logoClickCount || 0) + 1;
+              if (window.logoClickCount >= 5) {
+                navigate('/admin');
+                window.logoClickCount = 0;
+              }
+            } else {
+              window.logoClickCount = 1;
+              navigate('/');
+            }
+            window.lastLogoClick = now;
+          }}
+        >
           <div className="w-8 h-8 bg-accent rounded-sm flex items-center justify-center text-primary font-bold font-serif text-xl">
             R
           </div>
