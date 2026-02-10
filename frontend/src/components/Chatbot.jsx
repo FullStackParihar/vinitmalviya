@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
+import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, X, Send, Loader2 } from 'lucide-react';
+import API_BASE_URL from '../config';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,22 +31,12 @@ const Chatbot = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('https://vinitmalviya.onrender.com/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        // Updated to match backend ChatRequest model
-        body: JSON.stringify({ 
-            message: userMessage.content,
-            history: [] // Future: Pass history if needed
-        }),
+      const response = await axios.post(`${API_BASE_URL}/api/chat`, { 
+        message: userMessage.content,
+        history: [] // Future: Pass history if needed
       });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const data = await response.json();
-      setMessages(prev => [...prev, { role: 'system', content: data.response }]);
+      setMessages(prev => [...prev, { role: 'system', content: response.data.response }]);
     } catch (error) {
       setMessages(prev => [...prev, { role: 'system', content: "I'm having trouble connecting to the design server. Please ensure the backend is running." }]);
     } finally {

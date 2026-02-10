@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import API_BASE_URL, { getImageUrl } from '../config';
 import { ArrowUpRight } from 'lucide-react';
 import smartLockImage from '../assets/smart_lock.png';
 import lockImage from '../assets/hero.png'; 
@@ -33,6 +36,25 @@ const products = [
 ];
 
 const HardwareShowcase = () => {
+  const [displayProducts, setDisplayProducts] = useState(products);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchHardware = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/api/hardware`);
+        if (response.data && response.data.length > 0) {
+          // If we have API data, let's use it. 
+          // You could also merge: [...products, ...response.data]
+          // For now, let's append effectively so the section looks full.
+          setDisplayProducts([...response.data, ...products]);
+        }
+      } catch (error) {
+        console.error("Failed to fetch hardware", error);
+      }
+    };
+    fetchHardware();
+  }, []);
     
   const handleWhatsapp = (productName) => {
     const message = encodeURIComponent(`Hi, I'm interested in the ${productName}. Can you share more details?`);
@@ -47,13 +69,16 @@ const HardwareShowcase = () => {
             <h2 className="text-accent tracking-widest uppercase mb-4 font-medium">Premium Hardware</h2>
             <h3 className="text-4xl md:text-5xl font-serif text-primary">Details Matter</h3>
           </div>
-          <button className="hidden md:flex items-center gap-2 text-primary font-bold border-b-2 border-accent pb-1 hover:text-accent transition-colors mt-6 md:mt-0">
+          <button 
+             onClick={() => navigate('/hardware-catalog')}
+             className="hidden md:flex items-center gap-2 text-primary font-bold border-b-2 border-accent pb-1 hover:text-accent transition-colors mt-6 md:mt-0"
+           >
             View Full Catalog <ArrowUpRight size={18} />
           </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {products.map((product, index) => (
+          {displayProducts.map((product, index) => (
             <motion.div
               key={product.id}
               initial={{ opacity: 0, y: 30 }}
@@ -67,7 +92,7 @@ const HardwareShowcase = () => {
                   {product.tag}
                 </div>
                 <img 
-                  src={product.image} 
+                  src={product.image_url ? getImageUrl(product.image_url) : product.image} 
                   alt={product.name} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
@@ -103,7 +128,10 @@ const HardwareShowcase = () => {
         </div>
         
         <div className="mt-8 text-center md:hidden">
-          <button className="inline-flex items-center gap-2 text-primary font-bold border-b-2 border-accent pb-1">
+          <button 
+            onClick={() => navigate('/hardware-catalog')}
+            className="inline-flex items-center gap-2 text-primary font-bold border-b-2 border-accent pb-1"
+          >
             View Full Catalog <ArrowUpRight size={18} />
           </button>
         </div>

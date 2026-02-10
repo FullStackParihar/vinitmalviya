@@ -6,4 +6,8 @@ python-multipart
 python-dotenv
 email-validator
 pymongo
-
+bcrypt
+python-jose[cryptography]
+fastapi-mail
+cloudinary
+python-multipart

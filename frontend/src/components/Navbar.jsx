@@ -1,11 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = ({ onBookClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = (href) => {
+    setIsMobileMenuOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(href.replace('#', ''));
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+        const element = document.getElementById(href.replace('#', ''));
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 50) {
@@ -28,7 +45,7 @@ const Navbar = ({ onBookClick }) => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-4' : 'bg-transparent py-6'
+        (isScrolled || isMobileMenuOpen || location.pathname !== '/') ? 'bg-white/90 backdrop-blur-md shadow-md py-4' : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
@@ -38,7 +55,7 @@ const Navbar = ({ onBookClick }) => {
             R
           </div>
           <span className={`text-xl font-serif font-bold tracking-wide ${
-            isScrolled ? 'text-primary' : 'text-white'
+            (isScrolled || isMobileMenuOpen || location.pathname !== '/') ? 'text-primary' : 'text-white'
           }`}>
             RAMDEV <span className="text-accent">BUILDERS</span>
           </span>
@@ -49,9 +66,9 @@ const Navbar = ({ onBookClick }) => {
           {navLinks.map((link) => (
             <a
               key={link.name}
-              href={link.href}
-              className={`text-sm tracking-widest uppercase font-medium hover:text-accent transition-colors ${
-                isScrolled ? 'text-primary' : 'text-white/90'
+              onClick={() => handleNavClick(link.href)}
+              className={`text-sm tracking-widest uppercase font-medium hover:text-accent transition-colors cursor-pointer ${
+                (isScrolled || location.pathname !== '/') ? 'text-primary' : 'text-white/90'
               }`}
             >
               {link.name}
@@ -60,7 +77,7 @@ const Navbar = ({ onBookClick }) => {
           <button 
             onClick={onBookClick}
             className={`px-6 py-2 border-2 text-sm font-bold uppercase tracking-wider transition-all hover:bg-accent hover:border-accent hover:text-primary ${
-            isScrolled ? 'border-primary text-primary' : 'border-white text-white'
+            (isScrolled || location.pathname !== '/') ? 'border-primary text-primary' : 'border-white text-white'
           }`}>
             Contact Us
           </button>
@@ -87,9 +104,8 @@ const Navbar = ({ onBookClick }) => {
             {navLinks.map((link) => (
               <a
                 key={link.name}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-primary font-medium uppercase tracking-wide py-2 border-b border-gray-50"
+                onClick={() => handleNavClick(link.href)}
+                className="text-primary font-medium uppercase tracking-wide py-2 border-b border-gray-50 cursor-pointer"
               >
                 {link.name}
               </a>

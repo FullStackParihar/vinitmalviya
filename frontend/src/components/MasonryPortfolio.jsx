@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import axios from 'axios';
+import API_BASE_URL, { getImageUrl } from '../config';
 import kitchenImage from '../assets/kitchen.png';
 import heroImage from '../assets/hero.png';
 import constructionImage from '../assets/construction_site.png';
@@ -8,7 +10,8 @@ import floorPlanImage from '../assets/floor_plan.png';
 import floorPlanApartmentImage from '../assets/floor_plan_apartment.png';
 import exteriorImage from '../assets/exterior_elevation.png';
 
-const projects = [
+// Fallback data
+const staticProjects = [
   {
     id: 1,
     title: "Emerald Heights Villa",
@@ -87,6 +90,26 @@ const categories = ["All", "Construction", "Exterior", "Floor Plans", "Living Ro
 
 const MasonryPortfolio = () => {
   const [filter, setFilter] = useState("All");
+  const [projects, setProjects] = useState(staticProjects);
+
+  // Fetch dynamic projects
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/api/portfolio`);
+        if (response.data && response.data.length > 0) {
+          const apiProjects = response.data.map(p => ({
+            ...p,
+            image: getImageUrl(p.image_url) 
+          }));
+          setProjects([...apiProjects, ...staticProjects]); // Append or replace? Let's append for now so it's not empty
+        }
+      } catch (error) {
+        console.log("Using static data (Backend offline or empty)");
+      }
+    };
+    fetchProjects();
+  }, []);
 
   const filteredProjects = filter === "All" 
     ? projects 
@@ -125,7 +148,7 @@ const MasonryPortfolio = () => {
         {/* Grid */}
         <motion.div 
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6"
         >
           <AnimatePresence>
             {filteredProjects.map((project) => (
@@ -136,16 +159,22 @@ const MasonryPortfolio = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-                className={`group relative overflow-hidden rounded-sm cursor-pointer ${
-                  project.size === 'large' ? 'md:col-span-2 md:row-span-2' : ''
-                }`}
+                className="group relative overflow-hidden rounded-sm cursor-pointer break-inside-avoid"
               >
-                <div className={`w-full h-full overflow-hidden ${project.size === 'large' ? 'aspect-square md:aspect-auto' : 'aspect-[4/3]'}`}>
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+                <div className="w-full relative">
+                  {project.media_type === 'video' ? (
+                       <video 
+                         src={project.image} 
+                         className="w-full h-auto block rounded-sm transition-transform duration-700 group-hover:scale-105"
+                         autoPlay loop muted playsInline
+                       />
+                  ) : (
+                      <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="w-full h-auto block rounded-sm transition-transform duration-700 group-hover:scale-105"
+                      />
+                  )}
                 </div>
                 
                 {/* Overlay */}
