@@ -28,7 +28,7 @@ app = FastAPI(title="Ramdev Builders API")
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"], 
+    allow_origins=["*"],  # Allow all origins for production (Netlify, etc.)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -54,12 +54,22 @@ async def startup_db_client():
     os.makedirs("uploads", exist_ok=True)
     
     # Create default admin user if not exists
-    admin_user = await DB.users.find_one({"username": "admin"})
-    if not admin_user:
-        hashed_password = get_password_hash("admin123")
-        user_dict = {"username": "admin", "password_hash": hashed_password, "role": "admin"}
-        await DB.users.insert_one(user_dict)
-        print("Admin user created: admin / admin123")
+    try:
+        if await DB.users.count_documents({}) == 0:
+             hashed_password = get_password_hash("admin123")
+             user_dict = {"username": "admin", "password_hash": hashed_password, "role": "admin"}
+             await DB.users.insert_one(user_dict)
+             print("Admin user created: admin / admin123")
+        else:
+            # Check if admin exists specifically
+            admin_user = await DB.users.find_one({"username": "admin"})
+            if not admin_user:
+                hashed_password = get_password_hash("admin123")
+                user_dict = {"username": "admin", "password_hash": hashed_password, "role": "admin"}
+                await DB.users.insert_one(user_dict)
+                print("Admin user created: admin / admin123")
+    except Exception as e:
+        print(f"DB Startup Error: {e}")
 
 # --- API Routes ---
 
@@ -78,6 +88,17 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
         )
     access_token = create_access_token(data={"sub": user["username"]})
     return {"access_token": access_token, "token_type": "bearer"}
+
+@app.post("/api/reset-admin-password")
+async def reset_admin_password():
+    # TEMPORARY ENDPOINT FOR RECOVERY
+    hashed_password = get_password_hash("admin123")
+    await DB.users.update_one(
+        {"username": "admin"},
+        {"$set": {"password_hash": hashed_password}},
+        upsert=True
+    )
+    return {"status": "success", "message": "Admin password reset to 'admin123'"}
 
 @app.get("/api/portfolio", response_model=List[dict])
 async def get_portfolio_items():
