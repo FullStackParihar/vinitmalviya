@@ -177,17 +177,19 @@ const MasonryPortfolio = () => {
                   )}
                 </div>
                 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
-                  <h4 className="text-2xl font-serif text-white mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
-                    {project.title}
-                  </h4>
-                  <p className="text-accent uppercase tracking-wider text-sm mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">
-                    {project.category}
-                  </p>
-                  <p className="text-gray-300 text-xs mb-4 max-w-[80%] translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">
-                    {project.scope}
-                  </p>
+                {/* Overlay: Always visible bottom-gradient on mobile, full-screen hover on desktop */}
+                <div className="absolute inset-x-0 bottom-0 md:inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent md:bg-primary/80 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end md:justify-center items-center text-center p-4 md:p-6 pb-6 md:pb-6">
+                  <div className="translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-500">
+                    <h4 className="text-lg md:text-2xl font-serif text-white mb-1 md:mb-2">
+                      {project.title}
+                    </h4>
+                    <p className="text-accent uppercase tracking-wider text-[10px] md:text-sm mb-1 md:mb-4 font-bold">
+                      {project.category}
+                    </p>
+                    <p className="hidden md:block text-gray-300 text-xs max-w-[80%] mx-auto">
+                      {project.scope}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             ))}
