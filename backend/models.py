@@ -37,6 +37,7 @@ class PortfolioItemBase(BaseModel):
     title: str
     category: str
     scope: str
+    description: Optional[str] = None
     image_url: str  # Path to stored image
     size: str = "small" # "small", "large"
     media_type: str = "image" # "image", "video"

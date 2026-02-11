@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import API_BASE_URL from '../config';
 
 const AdminLogin = () => {
@@ -26,7 +27,13 @@ const AdminLogin = () => {
 
   return (
     <div className="min-h-screen bg-primary flex items-center justify-center p-4">
-      <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-md">
+      <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-md relative">
+        <Link 
+          to="/" 
+          className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors text-sm mb-6"
+        >
+          <ArrowLeft size={16} /> Back to Home
+        </Link>
         <h2 className="text-2xl font-serif text-primary mb-6 text-center">Admin Access</h2>
         {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
         <form onSubmit={handleLogin} className="space-y-4">

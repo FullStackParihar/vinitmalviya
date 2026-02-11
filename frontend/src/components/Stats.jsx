@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const stats = [
-  { label: "Projects Completed", value: 150, suffix: "+" },
-  { label: "Happy Families", value: 120, suffix: "+" },
-  { label: "Years Experience", value: 12, suffix: "" },
+  { label: "Projects Completed", value: 55, suffix: "+" },
+  { label: "Happy Families", value: 50, suffix: "+" },
+  { label: "Years Experience", value: 45, suffix: "" },
   { label: "Design Awards", value: 8, suffix: "" },
 ];
 

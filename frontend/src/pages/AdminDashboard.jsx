@@ -15,6 +15,7 @@ const AdminDashboard = () => {
     title: '',
     category: 'Construction',
     scope: '',
+    description: '',
     size: 'small',
     media_type: 'image',
     file: null
@@ -129,13 +130,13 @@ const AdminDashboard = () => {
     e.preventDefault();
     setLoading(true);
     const formData = new FormData();
-    Object.keys(newItem).forEach(key => {
-      if (key === 'file') {
-        formData.append('image', newItem[key]);
-      } else {
-        formData.append(key, newItem[key]);
-      }
-    });
+    formData.append('title', newItem.title);
+    formData.append('category', newItem.category);
+    formData.append('scope', newItem.scope);
+    formData.append('description', newItem.description);
+    formData.append('size', newItem.size);
+    formData.append('media_type', newItem.media_type);
+    formData.append('image', newItem.file);
 
     try {
       const token = localStorage.getItem('token');
@@ -144,7 +145,7 @@ const AdminDashboard = () => {
           'Authorization': `Bearer ${token}`
         }
       });
-      setNewItem({ title: '', category: 'Construction', scope: '', size: 'small', media_type: 'image', file: null });
+      setNewItem({ title: '', category: 'Construction', scope: '', description: '', size: 'small', media_type: 'image', file: null });
       fetchItems();
       alert("Item added successfully!");
     } catch (error) {
@@ -331,6 +332,17 @@ const AdminDashboard = () => {
                         onChange={e => setNewItem({...newItem, scope: e.target.value})}
                         className="w-full mt-1 px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-accent"
                         required
+                      />
+                    </div>
+
+                    <div>
+                       <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">Description</label>
+                       <textarea 
+                        value={newItem.description}
+                        onChange={e => setNewItem({...newItem, description: e.target.value})}
+                        rows={3}
+                        className="w-full mt-1 px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-accent"
+                        placeholder="Detailed project explanation..."
                       />
                     </div>
 

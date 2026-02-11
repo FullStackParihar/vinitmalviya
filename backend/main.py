@@ -13,7 +13,7 @@ from auth import verify_password, create_access_token, get_password_hash, get_cu
 from models import Token, PortfolioItem, PortfolioItemCreate
 from bson import ObjectId
 import shutil
-from typing import List
+from typing import List, Optional
 from email_service import send_lead_notification, send_test_email
 from pydantic import EmailStr
 import cloudinary
@@ -115,6 +115,7 @@ async def create_portfolio_item(
     title: str = Form(...),
     category: str = Form(...),
     scope: str = Form(...),
+    description: Optional[str] = Form(None),
     size: str = Form("small"),
     media_type: str = Form("image"),
     image: UploadFile = File(...),
@@ -145,6 +146,7 @@ async def create_portfolio_item(
         "title": title,
         "category": category,
         "scope": scope,
+        "description": description,
         "size": size,
         "media_type": media_type,
         "image_url": file_url # Now a full URL, not relative path
