@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field, EmailStr
-from typing import Optional
+from typing import Optional, List
 from datetime import datetime
 
 class LeadBase(BaseModel):
@@ -61,3 +61,24 @@ class HardwareProductCreate(HardwareProductBase):
 
 class HardwareProduct(HardwareProductBase):
     id: str
+
+class WorkStage(BaseModel):
+    name: str
+    images: List[str] = []
+
+# Project Updates Models
+class ProjectUpdateBase(BaseModel):
+    site_name: str
+    client_name: Optional[str] = ""
+    location: Optional[str] = ""
+    category: str  # "construction_active", "interior_active", "construction_completed", "interior_completed"
+    main_image: Optional[str] = ""
+    work_stages: List[WorkStage] = []
+    updated_at: datetime = Field(default_factory=datetime.now)
+
+class ProjectUpdateCreate(ProjectUpdateBase):
+    pass
+
+class ProjectUpdate(ProjectUpdateBase):
+    id: str
+

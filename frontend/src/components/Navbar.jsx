@@ -12,14 +12,22 @@ const Navbar = ({ onBookClick }) => {
 
   const handleNavClick = (href) => {
     setIsMobileMenuOpen(false);
+    let targetHref = href;
+    if (href === '#tracker') {
+      window.dispatchEvent(new CustomEvent('switch-to-tracker'));
+      targetHref = '#portfolio';
+    } else if (href === '#portfolio') {
+      window.dispatchEvent(new CustomEvent('switch-to-gallery'));
+    }
+
     if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
-        const element = document.getElementById(href.replace('#', ''));
+        const element = document.getElementById(targetHref.replace('#', ''));
         if (element) element.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     } else {
-        const element = document.getElementById(href.replace('#', ''));
+        const element = document.getElementById(targetHref.replace('#', ''));
         if (element) element.scrollIntoView({ behavior: 'smooth' });
     }
   };
@@ -34,6 +42,7 @@ const Navbar = ({ onBookClick }) => {
 
   const navLinks = [
     { name: 'Portfolio', href: '#portfolio' },
+    { name: 'Live Progress', href: '#tracker' },
     { name: 'Services', href: '#services' },
     { name: 'Hardware', href: '#hardware' },
     { name: 'About', href: '#about' },

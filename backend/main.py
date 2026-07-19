@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, Form, Body, Depends, File, UploadFile, status, BackgroundTasks
+from fastapi import FastAPI, HTTPException, Form, Body, Depends, File, UploadFile, status, BackgroundTasks, Request
 from fastapi.middleware.cors import CORSMiddleware
 import os
 import google.generativeai as genai
@@ -10,7 +10,7 @@ from pydantic import BaseModel
 from fastapi.staticfiles import StaticFiles
 from fastapi.security import OAuth2PasswordRequestForm
 from auth import verify_password, create_access_token, get_password_hash, get_current_user, User
-from models import Token, PortfolioItem, PortfolioItemCreate
+from models import Token, PortfolioItem, PortfolioItemCreate, ProjectUpdateCreate
 from bson import ObjectId
 import shutil
 from typing import List, Optional
@@ -287,3 +287,204 @@ async def chat(request: ChatRequest):
     except Exception as e:
         print(f"AI Error: {e}")
         raise HTTPException(status_code=500, detail="AI Service Error")
+
+# --- Project Updates Endpoints ---
+@app.get("/api/project-updates", response_model=List[dict])
+async def get_project_updates():
+    updates = []
+    cursor = DB.project_updates.find()
+    async for document in cursor:
+        document["id"] = str(document["_id"])
+        del document["_id"]
+        if "updated_at" in document and isinstance(document["updated_at"], datetime):
+            document["updated_at"] = document["updated_at"].isoformat()
+        updates.append(document)
+    return updates
+
+@app.post("/api/project-updates")
+async def create_project_update(
+    request: Request,
+    current_user: User = Depends(get_current_user)
+):
+    import json
+    from cloudinary_service import upload_image_to_cloudinary
+
+    form = await request.form()
+    site_name = form.get("site_name")
+    client_name = form.get("client_name", "")
+    location = form.get("location", "")
+    category = form.get("category")
+    
+    if not site_name or not category:
+        raise HTTPException(status_code=400, detail="site_name and category are required")
+
+    work_stages_str = form.get("work_stages", "[]")
+    
+    stages = []
+    try:
+        parsed_stages = json.loads(work_stages_str)
+        for stage in parsed_stages:
+            if isinstance(stage, str):
+                stages.append({"name": stage, "images": []})
+            elif isinstance(stage, dict) and "name" in stage:
+                stages.append({"name": stage["name"], "images": stage.get("images", [])})
+    except Exception as e:
+        print(f"Error parsing work stages: {e}")
+
+    main_image_url = ""
+    stage_images_dict = {}
+
+    form_items = list(form.multi_items())
+    print(f"[POST] Total form keys received: {[k for k,v in form_items]}")
+
+    for key, value in form_items:
+        if hasattr(value, 'read') and getattr(value, 'filename', None):
+            print(f"[POST] Uploading file: key={key}, filename={value.filename}")
+            try:
+                if key == "main_image":
+                    await value.seek(0)
+                    url = await upload_image_to_cloudinary(value, folder="ramdev_tracker")
+                    print(f"[POST] main_image upload result: {url}")
+                    if url:
+                        main_image_url = url
+                elif key.startswith("stage_images_"):
+                    stage_name = key[len("stage_images_"):]
+                    print(f"[POST] Uploading stage image for stage: '{stage_name}'")
+                    await value.seek(0)
+                    url = await upload_image_to_cloudinary(value, folder="ramdev_tracker")
+                    print(f"[POST] stage image upload result: {url}")
+                    if url:
+                        if stage_name not in stage_images_dict:
+                            stage_images_dict[stage_name] = []
+                        stage_images_dict[stage_name].append(url)
+            except Exception as e:
+                print(f"[POST] Error uploading file for {key}: {e}")
+
+    print(f"[POST] stage_images_dict keys: {list(stage_images_dict.keys())}")
+    print(f"[POST] stages names: {[s['name'] for s in stages]}")
+
+    for stage in stages:
+        name = stage["name"]
+        if name in stage_images_dict:
+            stage["images"].extend(stage_images_dict[name])
+            print(f"[POST] Added {len(stage_images_dict[name])} images to stage '{name}'")
+        else:
+            print(f"[POST] No new images for stage '{name}'")
+
+    try:
+        update_dict = {
+            "site_name": site_name,
+            "client_name": client_name,
+            "location": location,
+            "category": category,
+            "main_image": main_image_url,
+            "work_stages": stages,
+            "updated_at": datetime.now()
+        }
+        result = await DB.project_updates.insert_one(update_dict)
+        return {"status": "success", "id": str(result.inserted_id)}
+    except Exception as e:
+        print(f"Error creating project update: {e}")
+        raise HTTPException(status_code=500, detail="Database Error")
+
+@app.put("/api/project-updates/{update_id}")
+async def update_project_update(
+    update_id: str,
+    request: Request,
+    current_user: User = Depends(get_current_user)
+):
+    import json
+    from cloudinary_service import upload_image_to_cloudinary
+
+    form = await request.form()
+    site_name = form.get("site_name")
+    client_name = form.get("client_name", "")
+    location = form.get("location", "")
+    category = form.get("category")
+    
+    if not site_name or not category:
+        raise HTTPException(status_code=400, detail="site_name and category are required")
+
+    existing_main_image = form.get("existing_main_image", "")
+    work_stages_str = form.get("work_stages", "[]")
+
+    stages = []
+    try:
+        parsed_stages = json.loads(work_stages_str)
+        for stage in parsed_stages:
+            if isinstance(stage, str):
+                stages.append({"name": stage, "images": []})
+            elif isinstance(stage, dict) and "name" in stage:
+                stages.append({"name": stage["name"], "images": stage.get("images", [])})
+    except Exception as e:
+        print(f"Error parsing work stages: {e}")
+
+    main_image_url = existing_main_image
+    stage_images_dict = {}
+
+    form_items = list(form.multi_items())
+    print(f"[PUT] Total form keys received: {[k for k,v in form_items]}")
+
+    for key, value in form_items:
+        if hasattr(value, 'read') and getattr(value, 'filename', None):
+            print(f"[PUT] Uploading file: key={key}, filename={value.filename}")
+            try:
+                if key == "main_image":
+                    await value.seek(0)
+                    url = await upload_image_to_cloudinary(value, folder="ramdev_tracker")
+                    print(f"[PUT] main_image upload result: {url}")
+                    if url:
+                        main_image_url = url
+                elif key.startswith("stage_images_"):
+                    stage_name = key[len("stage_images_"):]
+                    print(f"[PUT] Uploading stage image for stage: '{stage_name}'")
+                    await value.seek(0)
+                    url = await upload_image_to_cloudinary(value, folder="ramdev_tracker")
+                    print(f"[PUT] stage image upload result: {url}")
+                    if url:
+                        if stage_name not in stage_images_dict:
+                            stage_images_dict[stage_name] = []
+                        stage_images_dict[stage_name].append(url)
+            except Exception as e:
+                print(f"[PUT] Error uploading file for {key}: {e}")
+
+    print(f"[PUT] stage_images_dict keys: {list(stage_images_dict.keys())}")
+    print(f"[PUT] stages names: {[s['name'] for s in stages]}")
+
+    for stage in stages:
+        name = stage["name"]
+        if name in stage_images_dict:
+            stage["images"].extend(stage_images_dict[name])
+            print(f"[PUT] Added {len(stage_images_dict[name])} images to stage '{name}'")
+        else:
+            print(f"[PUT] No new images for stage '{name}'")
+
+    try:
+        update_dict = {
+            "site_name": site_name,
+            "client_name": client_name,
+            "location": location,
+            "category": category,
+            "main_image": main_image_url,
+            "work_stages": stages,
+            "updated_at": datetime.now()
+        }
+        
+        result = await DB.project_updates.update_one(
+            {"_id": ObjectId(update_id)},
+            {"$set": update_dict}
+        )
+        if result.matched_count == 1:
+            return {"status": "success"}
+        raise HTTPException(status_code=404, detail="Update not found")
+    except Exception as e:
+        print(f"Error updating project update: {e}")
+        raise HTTPException(status_code=500, detail="Database Error")
+
+@app.delete("/api/project-updates/{update_id}")
+async def delete_project_update(update_id: str, current_user: User = Depends(get_current_user)):
+    result = await DB.project_updates.delete_one({"_id": ObjectId(update_id)})
+    if result.deleted_count == 1:
+        return {"status": "success"}
+    raise HTTPException(status_code=404, detail="Update not found")
+

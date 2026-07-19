@@ -1,0 +1,371 @@
+INFO:     Will watch for changes in these directories: ['/home/vishnu/Desktop/vinu/backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [23303] using StatReload
+/home/vishnu/Desktop/vinu/backend/main.py:4: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [23305]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:38590 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51402 - "OPTIONS /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51432 - "GET /api/leads HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51400 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51418 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51426 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43620 - "POST /token HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43632 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43620 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43632 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43620 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43622 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43622 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43638 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43622 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34268 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34304 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34298 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34304 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34268 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34282 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34298 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34282 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33562 - "POST /token HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33562 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33582 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33574 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33574 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33582 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33562 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33568 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33598 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37938 - "OPTIONS /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37952 - "POST /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37952 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48548 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48532 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48536 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48532 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48548 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48536 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57024 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57034 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57020 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57024 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57022 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57034 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57038 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57020 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41848 - "POST /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41848 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42618 - "POST /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42618 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48692 - "POST /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48692 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43304 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48696 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48694 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43304 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48696 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48694 - "GET /api/project-updates HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'models.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [23305]
+/home/vishnu/Desktop/vinu/backend/main.py:4: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [27690]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [27690]
+/home/vishnu/Desktop/vinu/backend/main.py:4: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [27730]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [27730]
+/home/vishnu/Desktop/vinu/backend/main.py:4: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [27782]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:48288 - "POST /token HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48292 - "OPTIONS /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48318 - "OPTIONS /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48288 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48318 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48320 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48318 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48296 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48296 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48302 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48296 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38722 - "POST /token HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38740 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38722 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38734 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38758 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38740 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38734 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38752 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38752 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58868 - "OPTIONS /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58868 - "POST /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58868 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38794 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38798 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38792 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38794 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38798 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38810 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42916 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42902 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42910 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42916 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42910 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42922 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57294 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41090 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41098 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41080 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41090 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41098 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41106 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42046 - "OPTIONS /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42088 - "GET /api/leads HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:42046 - "GET /api/leads HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:42044 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42076 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42060 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42076 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42044 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42060 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39442 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39440 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39450 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39442 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39450 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39452 - "GET /api/portfolio HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [27782]
+/home/vishnu/Desktop/vinu/backend/main.py:4: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [37113]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:59086 - "POST /token HTTP/1.1" 200 OK
+[POST] Total form keys received: ['site_name', 'category', 'client_name', 'location', 'work_stages', 'stage_images_foundation work']
+[POST] stage_images_dict keys: []
+[POST] stages names: ['foundation work']
+[POST] No new images for stage 'foundation work'
+INFO:     127.0.0.1:59096 - "POST /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34784 - "GET /api/project-updates HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [37113]
+/home/vishnu/Desktop/vinu/backend/main.py:4: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [37915]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:48032 - "POST /token HTTP/1.1" 200 OK
+[POST] Total form keys received: ['site_name', 'category', 'client_name', 'location', 'work_stages', 'stage_images_foundation work']
+[POST] Uploading file: key=stage_images_foundation work, filename=construction_foundation.png
+[POST] Uploading stage image for stage: 'foundation work'
+[POST] stage image upload result: https://res.cloudinary.com/dwvt8pq94/image/upload/v1784465782/ramdev_tracker/ek8sgjsodzhdjl2ipf94.jpg
+[POST] stage_images_dict keys: ['foundation work']
+[POST] stages names: ['foundation work']
+[POST] Added 1 images to stage 'foundation work'
+INFO:     127.0.0.1:48036 - "POST /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39486 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39516 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39492 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39504 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39492 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39516 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52622 - "OPTIONS /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52640 - "OPTIONS /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52646 - "GET /api/leads HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:52640 - "GET /api/leads HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:52608 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52626 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52632 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52632 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52608 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52626 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40848 - "OPTIONS /api/project-updates/6a5cc27548b9a4fb018d763f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40848 - "PUT /api/project-updates/6a5cc27548b9a4fb018d763f HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:40848 - "PUT /api/project-updates/6a5cc27548b9a4fb018d763f HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:40848 - "PUT /api/project-updates/6a5cc27548b9a4fb018d763f HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:40848 - "PUT /api/project-updates/6a5cc27548b9a4fb018d763f HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:40848 - "PUT /api/project-updates/6a5cc27548b9a4fb018d763f HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:38824 - "GET /api/leads HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:38824 - "GET /api/leads HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:38840 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40848 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38844 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38840 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40848 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40848 - "POST /token HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38840 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40848 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40848 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38840 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38844 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38844 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60206 - "OPTIONS /api/project-updates/6a5cc27548b9a4fb018d763f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60206 - "PUT /api/project-updates/6a5cc27548b9a4fb018d763f HTTP/1.1" 401 Unauthorized
+WARNING:  StatReload detected changes in 'auth.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [37915]
+/home/vishnu/Desktop/vinu/backend/main.py:4: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+INFO:     Started server process [46681]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:39504 - "OPTIONS /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39526 - "GET /api/leads HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:39504 - "GET /api/leads HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:39488 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39488 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39516 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39522 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39516 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39522 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53424 - "PUT /api/project-updates/6a5cc27548b9a4fb018d763f HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:53424 - "POST /token HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53424 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59868 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53424 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59868 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59858 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59858 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59872 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59872 - "GET /api/project-updates HTTP/1.1" 200 OK
+[PUT] Total form keys received: ['site_name', 'client_name', 'location', 'category', 'work_stages', 'stage_images_foundation work', 'stage_images_foundation work']
+[PUT] Uploading file: key=stage_images_foundation work, filename=Screenshot from 2026-06-16 21-01-47.png
+[PUT] Uploading stage image for stage: 'foundation work'
+[PUT] stage image upload result: https://res.cloudinary.com/dwvt8pq94/image/upload/v1784468338/ramdev_tracker/bl8mozph8mij4b7v2ldl.png
+[PUT] Uploading file: key=stage_images_foundation work, filename=Screenshot from 2026-05-27 23-23-27.png
+[PUT] Uploading stage image for stage: 'foundation work'
+[PUT] stage image upload result: https://res.cloudinary.com/dwvt8pq94/image/upload/v1784468340/ramdev_tracker/bsd3ados1qovjxvzfhvh.png
+[PUT] stage_images_dict keys: ['foundation work']
+[PUT] stages names: ['foundation work', 'rcc work']
+[PUT] Added 2 images to stage 'foundation work'
+[PUT] No new images for stage 'rcc work'
+INFO:     127.0.0.1:56988 - "PUT /api/project-updates/6a5cc27548b9a4fb018d763f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56988 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44950 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44940 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44946 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44940 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44950 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44946 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56816 - "OPTIONS /api/project-updates/6a5cc27548b9a4fb018d763f HTTP/1.1" 200 OK
+[PUT] Total form keys received: ['site_name', 'client_name', 'location', 'category', 'work_stages', 'stage_images_rcc work', 'stage_images_rcc work', 'stage_images_rcc work', 'stage_images_rcc work']
+[PUT] Uploading file: key=stage_images_rcc work, filename=Screenshot from 2026-06-16 21-01-47.png
+[PUT] Uploading stage image for stage: 'rcc work'
+[PUT] stage image upload result: https://res.cloudinary.com/dwvt8pq94/image/upload/v1784468769/ramdev_tracker/nfct2j50sxe5d6gjr2cv.png
+[PUT] Uploading file: key=stage_images_rcc work, filename=Screenshot from 2026-05-27 23-23-27.png
+[PUT] Uploading stage image for stage: 'rcc work'
+[PUT] stage image upload result: https://res.cloudinary.com/dwvt8pq94/image/upload/v1784468770/ramdev_tracker/xfreorc0kpm0obqxwhg2.png
+[PUT] Uploading file: key=stage_images_rcc work, filename=Screenshot from 2026-05-27 22-54-45.png
+[PUT] Uploading stage image for stage: 'rcc work'
+[PUT] stage image upload result: https://res.cloudinary.com/dwvt8pq94/image/upload/v1784468772/ramdev_tracker/az7zqwjcqoz4dgibtka7.png
+[PUT] Uploading file: key=stage_images_rcc work, filename=Screenshot from 2026-05-25 21-50-45.png
+[PUT] Uploading stage image for stage: 'rcc work'
+[PUT] stage image upload result: https://res.cloudinary.com/dwvt8pq94/image/upload/v1784468772/ramdev_tracker/t6pbc48fwoawmpjntkho.png
+[PUT] stage_images_dict keys: ['rcc work']
+[PUT] stages names: ['foundation work', 'rcc work']
+[PUT] No new images for stage 'foundation work'
+[PUT] Added 4 images to stage 'rcc work'
+INFO:     127.0.0.1:56816 - "PUT /api/project-updates/6a5cc27548b9a4fb018d763f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56816 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44432 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44418 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44410 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44432 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44444 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44418 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48370 - "OPTIONS /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48364 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48376 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48370 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48390 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48376 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48406 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48364 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48390 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34338 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34308 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34322 - "GET /api/project-updates HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34338 - "GET /api/hardware HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34322 - "GET /api/portfolio HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34308 - "GET /api/project-updates HTTP/1.1" 200 OK
